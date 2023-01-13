@@ -46,7 +46,6 @@ matplotlib-inline==0.1.6
 mccabe==0.7.0
 mypy==0.981
 mypy-extensions==0.4.3
-mysql-connector-python==8.0.31
 networkx==2.8.8
 numpy==1.23.5
 packaging==21.3
@@ -56,7 +55,6 @@ pickleshare==0.7.5
 Pillow==9.3.0
 platformdirs==2.5.2
 prompt-toolkit==3.0.36
-protobuf==3.20.3
 pure-eval==0.2.2
 pyarrow==10.0.1
 pycodestyle==2.9.1
