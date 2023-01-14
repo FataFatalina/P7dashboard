@@ -9,7 +9,8 @@ import ast
 
 ########## Fucntions for requesting API ##########
 
-api_url = "http://127.0.0.1:5000/"
+local_api_url = "http://127.0.0.1:5000/"
+api_url = "https://p7flaskapp.herokuapp.com/"
 
 @st.cache
 def get_clients_indexes_list():
