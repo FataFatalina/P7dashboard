@@ -15,17 +15,28 @@ from sklearn.inspection import permutation_importance
 app = Flask(__name__) # initialise l'aplication flask
 
 # Load the best model and threshold of classification probability
-
-model_lightgbm = joblib.load('./data/model_lightgbm')
-thresh = joblib.load('./data/best_threshold')
+path = os.path.join('model_lightgbm')
+with open(path, 'rb') as f:
+    model_lightgbm = joblib.load(f)
+    
+path = os.path.join('data','best_threshold')
+with open(path, 'rb') as th:
+    thresh = joblib.load(th)
  
-# Load the data 
-X_test=pd.read_csv('./data/x_tessting.csv')
-y_test=pd.read_csv('./data/y_testing.csv')
-X_train=pd.read_csv('./data/x_training.csv')
-y_train=pd.read_csv('./data/y_training.csv')
+## Load the data 
+path = os.path.join('data', 'x_tessting.csv')
+X_test=pd.read_csv(path)
 
-#app_x_test=pd.read_csv('./data/app_x_test.csv')
+path = os.path.join('data', 'y_testing.csv')
+y_test=pd.read_csv(path)
+
+path = os.path.join('data', 'x_training.csv')
+X_train=pd.read_csv(path)
+
+path = os.path.join('data', 'y_training.csv')
+y_train=pd.read_csv(path)
+
+
 
 x_test=X_test.iloc[0:100]
 y_y_test=y_test[0:100]['TARGET']
@@ -158,3 +169,6 @@ def feature_importance():
  
     
     return {"mean_perm_importances": mean_perm_importances, "features_sorted_": features_sorted_}
+
+if __name__ == "__main__":
+    app.run(debug=True)
